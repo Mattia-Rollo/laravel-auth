@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container py-5">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
@@ -13,20 +13,22 @@
                         {{ session('status') }}
                     </div>
                     @endif
-
-                    {{ __('You are logged in!') }}
+                    <div class="d-flex justify-content-between">
+                        <div class="pb-3">{{ __('You are logged in!') }}</div>
+                        <div class=""><a href={{ route('admin.projects.index') }}>Vedi Tutti i Progetti</a></div>
+                    </div>
+                    <ul class="list-group">
+                        @foreach ($projects as $project)
+                            <li class="list-group-item"><a href="{{ route('admin.projects.show', $project->slug) }}">{{$project->title}}</a></li>
+                        @endforeach
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-<ul>
-    @foreach ($projects as $project)
-        <li><a href="{{ route('admin.projects.show', $project->slug) }}">{{$project->title}}</a></li>
-    @endforeach
-</ul>
 
-<div class="p-5"><a href={{ route('admin.projects.index') }}>Progetti</a></div>
+
 
 @endsection
