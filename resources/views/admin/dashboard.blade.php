@@ -20,4 +20,13 @@
         </div>
     </div>
 </div>
+
+{{-- <ul>
+    @foreach ($projects as $project)
+        <li><a href="{{ route('admin.projects.show', $project->slug) }}">{{$project->title}}</a></li>
+    @endforeach
+</ul> --}}
+
+<div class="p-5"><a href={{ route('admin.projects.index') }}>Progetti</a></div>
+
 @endsection
