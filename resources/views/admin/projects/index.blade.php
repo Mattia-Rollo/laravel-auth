@@ -11,7 +11,11 @@
                   <h5 class="card-title"><a href="{{ route('admin.projects.show', $project->slug) }}">{{$project->title}}</a></h5>
                   <p class="card-text">{{$project->content}}</p>
                 </div>
-                <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-primary m-2 w-25">view</a>
+                <div class="d-flex">
+                  <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-primary m-2 w-25">view</a>
+                  <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-secondary m-2 w-25">edit</a>
+                  <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-danger m-2 w-25">delete</a>
+                </div>
               </div>
 
             {{-- <div class="card text-bg-dark">
