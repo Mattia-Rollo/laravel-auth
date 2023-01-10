@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use \Illuminate\Http\Response;
 
 class ProjectController extends Controller
 {
@@ -47,10 +48,11 @@ class ProjectController extends Controller
      * @param  \App\Models\Project  $project
      * @return \Illuminate\Http\Response
      */
-    public function show(Project $slug)
+    public function show(Project $project)
     {
         //
-        $project = Project::find($slug);
+        // dd($slug);
+        // $project = Project::find($slug);
 
         // dd($project);
         return view('admin.projects.show', ['project' => $project]);
