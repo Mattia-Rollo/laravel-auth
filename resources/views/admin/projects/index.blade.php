@@ -10,8 +10,8 @@
                 <div class="card-body">
                   <h5 class="card-title"><a href="{{ route('admin.projects.show', $project->slug) }}">{{$project->title}}</a></h5>
                   <p class="card-text">{{$project->content}}</p>
-                  <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-primary">view</a>
                 </div>
+                <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-primary m-2 w-25">view</a>
               </div>
 
             {{-- <div class="card text-bg-dark">
