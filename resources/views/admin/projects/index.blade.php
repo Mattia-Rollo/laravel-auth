@@ -6,7 +6,7 @@
         @foreach ($projects as $project)
         <div class="col-4 g-2">
 
-            <div class="card h-100">
+            <div class="card h-100 shadow-lg">
                 <div class="card-body">
                   <h5 class="card-title"><a href="{{ route('admin.projects.show', $project->slug) }}">{{$project->title}}</a></h5>
                   <p class="card-text">{{$project->content}}</p>

@@ -3,12 +3,18 @@
 @section('content')
 <div class="container pt-2">
 
-    <h1>{{$project->title}}</h1>
+    <article>
+        <h1 class="py-5">{{$project->title}}</h1>
 
-    <p>
-        {{$project->content}}
-    </p>
-    
+        <p>
+            {{$project->content}}
+            {{$project->content}}
+            {{$project->content}}
+            {{$project->content}}
+            {{$project->content}}
+        </p>
+    <article>
+
 
 </div>
  
