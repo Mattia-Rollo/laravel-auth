@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Models\Project;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\Admin\ProjectController;
@@ -17,7 +18,8 @@ use App\Http\Controllers\Admin\ProjectController;
 */
 
 Route::get('/', function () {
-    return view('guest.welcome');
+    $projects = Project::all();
+    return view('guest.welcome', compact('projects'));
 });
 
 // Route::get('/dashboard', function () {
