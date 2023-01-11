@@ -13,6 +13,7 @@
             {{$project->content}}
             {{$project->content}}
         </p>
+        <img src="{{asset('storage/' . $project->cover_image)}}" alt="" class="w-25">
     <article>
 
         <a href="{{ route('admin.projects.index') }}" class="btn btn-primary">Back</a>

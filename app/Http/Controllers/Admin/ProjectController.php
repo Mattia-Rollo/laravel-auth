@@ -14,7 +14,6 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
@@ -26,7 +25,7 @@ class ProjectController extends Controller
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * 
      */
     public function create()
     {
@@ -46,22 +45,20 @@ class ProjectController extends Controller
         $data = $request->validated();
         $slug = Project::generateSlug($request->title);
         $data['slug'] = $slug;
-        // if($request->hasFile('cover_image')){
-        //     $path = Storage::disk('public')->put('post_images', $request->cover_image);
-        //     $data['cover_image'] = $path;
-        // }
+        if ($request->hasFile('cover_image')) {
+            $path = Storage::disk('public')->put('post_images', $request->cover_image);
+            $data['cover_image'] = $path;
+        }
 
         $new_project = Project::create($data);
         return redirect()->route('admin.projects.show', $new_project->slug);
-        //
-        // return redirect()->route('admin.projects.show', $project->id);
     }
 
     /**
      * Display the specified resource.
      *
      * @param  \App\Models\Project  $project
-     * @return \Illuminate\Http\Response
+     * 
      */
     public function show(Project $project)
     {
@@ -79,7 +76,7 @@ class ProjectController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param  \App\Models\Project  $project
-     * @return \Illuminate\Http\Response
+     * 
      */
     public function edit(Project $project)
     {
@@ -98,14 +95,14 @@ class ProjectController extends Controller
         $data = $request->validated();
         $slug = Project::generateSlug($request->title);
         $data['slug'] = $slug;
-        // if($request->hasFile('cover_image')){
-        //     if ($post->cover_image) {
-        //         Storage::delete($post->cover_image);
-        //     }
+        if ($request->hasFile('cover_image')) {
+            if ($project->cover_image) {
+                Storage::delete($project->cover_image);
+            }
 
-        //     $path = Storage::disk('public')->put('post_images', $request->cover_image);
-        //     $data['cover_image'] = $path;
-        // }
+            $path = Storage::disk('public')->put('post_images', $request->cover_image);
+            $data['cover_image'] = $path;
+        }
         $project->update($data);
         return redirect()->route('admin.projects.index')->with('message', "$project->title updated successfully");
     }
