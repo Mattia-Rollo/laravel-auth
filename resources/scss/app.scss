@@ -1,3 +1,25 @@
-@use 'partials/sidebar';
-@import '~bootstrap/scss/bootstrap';
+@use "partials/sidebar";
+@import "~bootstrap/scss/bootstrap";
 
+#admin {
+    height: 100vh;
+    display: flex;
+
+    #wrapper {
+        flex-grow: 1;
+        overflow-y: auto;
+
+        header {
+            min-height: 70px;
+
+            .img-profile {
+                height: 2rem;
+                width: 2rem;
+            }
+        }
+    }
+    #sidebarMenu {
+        background-color: black;
+        color: white;
+    }
+}
