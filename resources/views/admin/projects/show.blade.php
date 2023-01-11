@@ -3,17 +3,29 @@
 @section('content')
 
 
-    <article>
-        <h1 class="py-5">{{$project->title}}</h1>
-
-        <p>
-            {{$project->content}}
+<h1 class="text-center py-5">{{$project->title}}</h1>
+    <article class="row ">
+        
             
-        </p>
-        <img class="w-25" src="{{asset('storage/' . $project->cover_image)}}" alt="" >
-    <article>
-
-        <a href="{{ route('admin.projects.index') }}" class="btn btn-primary">Back</a>
+            <div class="col-8 justify-content-between">
+    
+                <p>
+                    {{$project->content}}
+                </p>
+            </div>
+            
+            <div class="col-4">
+                <div class="img-placeholder ">
+                    {{-- {!!$project->cover_image ? '' : '<h4>image placeholder text</h4>'!!} --}}
+                
+                    <img class="" src="{{$project->cover_image ? asset('storage/' . $project->cover_image) : ''}}" alt="{{$project->cover_image}}" >
+                
+                </div>
+            </div>
+            
+        </article>
+        
+        <a href="{{ route('admin.projects.index') }}" class="btn btn-primary mb-4">Back</a>
 
 
  

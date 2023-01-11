@@ -16,18 +16,24 @@ $fa-font-path: "../fonts/font-awesome" !default;
     #wrapper {
         flex-grow: 1;
         overflow-y: auto;
-
-        header {
-            min-height: 70px;
-
-            .img-profile {
-                height: 2rem;
-                width: 2rem;
-            }
-        }
     }
     #sidebarMenu {
         // background-color: black;
         color: white;
+    }
+}
+
+.img-placeholder {
+    background-color: rgb(179, 179, 179);
+    width: 100%;
+    display: flex;
+    text-align: center;
+    border-radius: 15px;
+    h4 {
+        margin: auto;
+    }
+    img {
+        max-width: 100%;
+        object-fit: cover;
     }
 }

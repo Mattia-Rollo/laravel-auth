@@ -17,11 +17,11 @@
                       </div>
                       <div class="mb-3">
                         <label for="content" class="form-label">Content</label>
-                        <textarea class="form-control" id="content" name="content">{{old('content', $project->content)}}</textarea>
+                        <textarea class="form-control" row="20" id="content" name="content">{{old('content', $project->content)}}</textarea>
                       </div>
                       <div class="d-flex">
                         <div class="media me-4">
-                            <img class="shadow" width="150" src="{{asset('storage/' . $project->cover_image)}}" alt="{{$project->title}}">
+                            <img class="shadow" width="150" src="{{$project->cover_image ? asset('storage/' . $project->cover_image) : 'https://picsum.photos/200/300'}}" alt="{{$project->title}}">
                         </div>
                         <div class="mb-3">
                             <label for="cover_image" class="form-label">Replace post image</label>

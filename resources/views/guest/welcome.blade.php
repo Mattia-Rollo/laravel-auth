@@ -8,7 +8,7 @@
         <h1 class="display-5 fw-bold text-center pb-3">
             Welcome to My Projects
         </h1>
-        <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
+        <p class="col-md-12 fs-4 text-center">Hi there! How is it going? I'm Mattia and i'm web developer, below you can find some of my latest projects achived with Laravel</p>
         <div class="row py-3">
             @foreach ($projects as $project)
             <div class="col-4 g-2">

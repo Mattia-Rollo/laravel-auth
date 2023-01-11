@@ -8,7 +8,7 @@
         
       
       @foreach ($projects as $project)
-        <div class="col-4 g-2">
+        <div class="col-12 col-md-4 g-2">
 
           <div class="card h-100 shadow-lg">
 
