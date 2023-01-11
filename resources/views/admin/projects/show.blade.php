@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container pt-2">
+
 
     <article>
         <h1 class="py-5">{{$project->title}}</h1>
@@ -15,7 +15,8 @@
         </p>
     <article>
 
+        <a href="{{ route('admin.projects.index') }}" class="btn btn-primary">Back</a>
 
-</div>
+
  
 @endsection

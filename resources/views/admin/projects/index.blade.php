@@ -1,33 +1,42 @@
 @extends('layouts.app')
 
 @section('content')
- <div class="container">
-    <div class="row py-3">
-        @foreach ($projects as $project)
+ 
+<a href="{{ route('admin.projects.create') }}" class="btn btn-secondary m-2">New</a>  
+
+  <div class="row py-3">
+        
+      
+      @foreach ($projects as $project)
         <div class="col-4 g-2">
 
-            <div class="card h-100 shadow-lg">
-                <div class="card-body">
-                  <h5 class="card-title"><a href="{{ route('admin.projects.show', $project->slug) }}">{{$project->title}}</a></h5>
-                  <p class="card-text">{{$project->content}}</p>
-                </div>
-                <div class="d-flex">
-                  <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-primary m-2 w-25">view</a>
-                  <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-secondary m-2 w-25">edit</a>
-                  <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-danger m-2 w-25">delete</a>
-                </div>
-              </div>
+          <div class="card h-100 shadow-lg">
 
-            {{-- <div class="card text-bg-dark">
-                <img src="https://via.placeholder.com/250x100.png?text=Visit+WhoIsHostingThis.com+Buyers+Guide" class="card-img" alt="...">
-                <div class="card-img-overlay">
-                  <h5 class="card-title"><a href="{{ route('admin.projects.show', $project->slug) }}">{{$project->title}}</a></h5>
-                  <p class="card-text">{{$project->content}}</p>
-                  <p class="card-text"><small></small></p>
+            <div class="card-body">
+              <h5 class="card-title"><a href="{{ route('admin.projects.show', $project->slug) }}">{{$project->title}}</a></h5>
+              <p class="card-text">{{$project->content}}</p>
+            </div>
+
+                <div class="d-flex justify-content-center">
+                  <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-primary m-2">view</a>
+                  <a href="{{ route('admin.projects.edit', $project->slug) }}" class="btn btn-secondary m-2">edit</a>
+                  
+                  <!-- bottone delete -->
+                  <form action="{{route('admin.projects.destroy', $project->slug)}}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <button type="submit" class="delete-button btn btn-danger m-2" data-item-title="{{$project->title}}">Cancella</button>
+                  </form>
+
                 </div>
-            </div> --}}
+
+            </div>
+
         </div>
-        @endforeach
+      @endforeach
+
     </div>
- </div>
+
+
+ @include('partials.modal_delete')
 @endsection

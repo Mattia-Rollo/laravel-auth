@@ -3,7 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Models\Project;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectController;
 
 /*
@@ -19,6 +19,7 @@ use App\Http\Controllers\Admin\ProjectController;
 
 Route::get('/', function () {
     $projects = Project::all();
+    // dd($projects);
     return view('guest.welcome', compact('projects'));
 });
 

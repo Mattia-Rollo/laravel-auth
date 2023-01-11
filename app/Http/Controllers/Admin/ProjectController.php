@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\StoreProjectRequest;
+use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
 {
@@ -28,6 +31,8 @@ class ProjectController extends Controller
     public function create()
     {
         //
+
+        return view('admin.projects.create');
     }
 
     /**
@@ -36,9 +41,20 @@ class ProjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreProjectRequest $request)
     {
+        $data = $request->validated();
+        $slug = Project::generateSlug($request->title);
+        $data['slug'] = $slug;
+        // if($request->hasFile('cover_image')){
+        //     $path = Storage::disk('public')->put('post_images', $request->cover_image);
+        //     $data['cover_image'] = $path;
+        // }
+
+        $new_project = Project::create($data);
+        return redirect()->route('admin.projects.show', $new_project->slug);
         //
+        // return redirect()->route('admin.projects.show', $project->id);
     }
 
     /**
@@ -52,11 +68,11 @@ class ProjectController extends Controller
 
         // dd($slug);
 
-        // $project = Project::first()->where('slug', $slug)->get();
+        // $project = Project::where('slug', $slug)->toSql();
 
         // dd($project);
-        return view('admin.projects.show', ['project' => $project]);
-        // return view('admin.projects.show');
+
+        return view('admin.projects.show', compact('project'));
     }
 
     /**
@@ -68,28 +84,42 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         //
+        return view('admin.projects.edit', compact('project'));
     }
 
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Project  $project
-     * @return \Illuminate\Http\Response
+     * 
      */
-    public function update(Request $request, Project $project)
+    public function update(UpdateProjectRequest $request, Project $project)
     {
         //
+        $data = $request->validated();
+        $slug = Project::generateSlug($request->title);
+        $data['slug'] = $slug;
+        // if($request->hasFile('cover_image')){
+        //     if ($post->cover_image) {
+        //         Storage::delete($post->cover_image);
+        //     }
+
+        //     $path = Storage::disk('public')->put('post_images', $request->cover_image);
+        //     $data['cover_image'] = $path;
+        // }
+        $project->update($data);
+        return redirect()->route('admin.projects.index')->with('message', "$project->title updated successfully");
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Project  $project
-     * @return \Illuminate\Http\Response
+     * 
      */
     public function destroy(Project $project)
     {
         //
+        $project->delete();
+        return redirect()->route('admin.projects.index')->with('message', "$project->title deleted successfully");
+
     }
 }

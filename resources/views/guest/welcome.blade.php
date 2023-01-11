@@ -1,13 +1,14 @@
 @extends('layouts.app')
 @section('content')
 
-<div class="jumbotron p-5 mb-4 bg-light rounded-3">
+<div class="jumbotron p-4 mb-4 bg-light rounded-3">
     <div class="container">
         
         
-        <h1 class="display-5 fw-bold">
+        <h1 class="display-5 fw-bold text-center pb-3">
             Welcome to My Projects
         </h1>
+        <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
         <div class="row py-3">
             @foreach ($projects as $project)
             <div class="col-4 g-2">
@@ -26,8 +27,8 @@
             </div>
 
 
-        <p class="col-md-8 fs-4">Using a series of utilities, you can create this jumbotron, just like the one in previous versions of Bootstrap. Check out the examples below for how you can remix and restyle it to your liking.</p>
-        <button class="btn btn-primary btn-lg" type="button">Example button</button>
+        
+        
     </div>
 </div>
 
