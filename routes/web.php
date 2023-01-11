@@ -21,7 +21,11 @@ Route::get('/', function () {
     $projects = Project::all();
     // dd($projects);
     return view('guest.welcome', compact('projects'));
-});
+})->name('welcome');
+Route::get('/show/{project:slug}', function (Project $project) {
+
+    return view('guest.show', compact('project'));
+})->name('show');
 
 // Route::get('/dashboard', function () {
 //     return view('dashboard');
