@@ -6,13 +6,13 @@
   <hr>
   <ul class="nav nav-pills flex-column mb-auto ">
     <li class="nav-item">
-      <a href="{{url('/')}}" class="nav-link active" aria-current="page">
+      <a href="{{url('/')}}" class="nav-link text-white{{ Route::currentRouteName() == 'welcome' ? 'active' : '' }} ">
         <i class="fa-solid fa-house me-1"></i>
         Home
       </a>
     </li>
     <li>
-      <a href="{{route('admin.projects.index')}}"  class="nav-link text-white">
+      <a href="{{route('admin.projects.index')}}"  class="nav-link text-white {{ Route::currentRouteName() == 'admin.projects.index' ? 'active' : '' }} ">
         <i class="fa-solid fa-gauge me-1"></i>
         {{-- <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2">
           <svg id="speedometer2" fill="#EF3B2D" viewBox="0 0 16 16">
@@ -25,13 +25,13 @@
     </li>
     <li>
       <a href="#" class="nav-link text-white">
-        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+        <i class="fa-solid fa-cash-register me-1"></i>
         Orders
       </a>
     </li>
     <li>
       <a href="#" class="nav-link text-white">
-        <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+        <i class="fa-solid fa-sitemap me-1"></i>
         Products
       </a>
     </li>
