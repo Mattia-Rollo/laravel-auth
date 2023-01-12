@@ -16,10 +16,11 @@ class ProjectTableSeeder extends Seeder
     public function run()
     {
         //
-        Project::truncate();
+        // Project::truncate();
 
         for ($i = 0; $i < 5; $i++) {
             $project = new Project();
+            $project->category_id = fake()->numberBetween(1, 6);
             $project->title = fake()->sentence(3);
             $project->slug = $project::generateSlug($project->title);
             $project->content = fake()->paragraph(3);

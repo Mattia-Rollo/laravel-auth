@@ -2,6 +2,8 @@
 
 @section('content')
 
+{{-- {{dd(old('category_id'))}} --}}
+
 <h1>Edit Post: {{$project->title}}</h1>
 <div class="row bg-white">
     <div class="col-12">

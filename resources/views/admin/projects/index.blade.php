@@ -22,7 +22,7 @@
           <th scope="row">{{$project->id}}</th>
           <td>{{$project->title}}</td>
           <td>{{$project->category ? $project->category->name : 'Senza categoria'}}</td>
-          <td>{{$project->slug}}</td>
+          <td>{{Str::limit($project->content,80)}}</td>
           <td>
             <div class="d-flex ">
               <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-primary m-2"><i class="fa-solid fa-eye"></i></a>
