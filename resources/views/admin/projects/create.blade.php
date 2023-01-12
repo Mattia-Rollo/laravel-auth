@@ -28,7 +28,7 @@
                       <div class="mb-3">
                         <label for="category_id" class="form-label">Seleziona categoria</label>
                         <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror">
-                          {{-- <option value="">Select category</option> --}}
+                          <option value="">Select category</option>
                           @foreach ($categories as $category)
                               <option value="{{$category->id}}" >{{$category->name}}</option>
                           @endforeach

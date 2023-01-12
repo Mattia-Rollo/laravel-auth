@@ -2,7 +2,11 @@
 
 @section('content')
  
-<div class="text-end"><a href="{{ route('admin.projects.create') }}" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a> </div> 
+<div class="d-flex justify-content-between">
+  
+  <h2>Ruolo: {{Auth::user()->isAdmin() ? 'Amminstratore' : 'Dipendente'}}</h2>
+  <div><a href="{{ route('admin.projects.create') }}" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a></div>
+</div>
 
   <div class="row py-2 g-2">
      
@@ -13,7 +17,7 @@
           <th scope="col">Titolo</th>
           <th scope="col">Categoria</th>
           <th scope="col">Autore</th>
-          <th scope="col">slug</th>
+          <th scope="col">Content</th>
           <th scope="col text-center">controlli</th>
         </tr>
       </thead>
