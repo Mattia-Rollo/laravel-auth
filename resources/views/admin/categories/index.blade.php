@@ -21,7 +21,7 @@
         <tr>
           <th scope="row">{{$category->id}}</th>
           <td>{{$category->name}}</td>
-          <td>numero post</td>
+          <td>{{count($category->posts)}}</td>
           <td>{{$category->slug}}</td>
           <td>
             <div class="d-flex ">

@@ -5,8 +5,10 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
+use App\Models\Category;
 use App\Models\Project;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ProjectController extends Controller
@@ -81,7 +83,11 @@ class ProjectController extends Controller
     public function edit(Project $project)
     {
         //
-        return view('admin.projects.edit', compact('project'));
+        if (!Auth::user()->isAdmin() && $project->user_id !== Auth::id()) {
+            abort(403);
+        }
+        $categories = Category::all();
+        return view('admin.projects.edit', compact('project', 'categories'));
     }
 
     /**
@@ -92,6 +98,9 @@ class ProjectController extends Controller
     public function update(UpdateProjectRequest $request, Project $project)
     {
         //
+        if (!Auth::user()->isAdmin() && $project->user_id !== Auth::id()) {
+            abort(403);
+        }
         $data = $request->validated();
         $slug = Project::generateSlug($request->title);
         $data['slug'] = $slug;
@@ -115,6 +124,9 @@ class ProjectController extends Controller
     public function destroy(Project $project)
     {
         //
+        if (!Auth::user()->isAdmin() && $project->user_id !== Auth::id()) {
+            abort(403);
+        }
         $project->delete();
         return redirect()->route('admin.projects.index')->with('message', "$project->title deleted successfully");
 
