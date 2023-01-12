@@ -1,4 +1,4 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 200px;">
+{{-- <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 200px;">
   <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
     <i class="fs-3 fa-solid fa-toolbox"></i>
     <span class="ms-3 fs-4">Sidebar</span>
@@ -14,12 +14,6 @@
     <li>
       <a href="{{route('admin.projects.index')}}"  class="nav-link text-white {{ Route::currentRouteName() == 'admin.projects.index' ? 'active' : '' }} ">
         <i class="fa-solid fa-gauge me-1"></i>
-        {{-- <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2">
-          <svg id="speedometer2" fill="#EF3B2D" viewBox="0 0 16 16">
-            <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"></path>
-            <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"></path>
-          </svg>  
-        </use></svg> --}}
         <span>Dashboard</span>
       </a>
     </li>
@@ -57,4 +51,157 @@
                                 </form>
     </ul>
   </div>
-</div>
+</div> --}}
+
+<aside class="sidebar">
+  <div class="sidebar-start">
+      <div class="sidebar-head">
+          <a href="/" class="logo-wrapper" title="Home">
+              <span class="sr-only">Home</span>
+              <span class="icon logo" aria-hidden="true"></span>
+              <div class="logo-text">
+                  <span class="logo-title">Elegant</span>
+                  <span class="logo-subtitle">Dashboard</span>
+              </div>
+
+          </a>
+          <button class="sidebar-toggle transparent-btn" title="Menu" type="button">
+              <span class="sr-only">Toggle menu</span>
+              <span class="icon menu-toggle" aria-hidden="true"></span>
+          </button>
+      </div>
+      <div class="sidebar-body">
+          <ul class="sidebar-body-menu">
+              <li>
+                  <a class="active" href="/"><span class="icon home" aria-hidden="true"></span>Dashboard</a>
+              </li>
+              <li>
+                  <a class="show-cat-btn" href="##">
+                      <span class="icon document" aria-hidden="true"></span>Posts
+                      <span class="category__btn transparent-btn" title="Open list">
+                          <span class="sr-only">Open list</span>
+                          <span class="icon arrow-down" aria-hidden="true"></span>
+                      </span>
+                  </a>
+                  <ul class="cat-sub-menu">
+                      <li>
+                          <a href="posts.html">All Posts</a>
+                      </li>
+                      <li>
+                          <a href="new-post.html">Add new post</a>
+                      </li>
+                  </ul>
+              </li>
+              <li>
+                  <a class="show-cat-btn" href="##">
+                      <span class="icon folder" aria-hidden="true"></span>Categories
+                      <span class="category__btn transparent-btn" title="Open list">
+                          <span class="sr-only">Open list</span>
+                          <span class="icon arrow-down" aria-hidden="true"></span>
+                      </span>
+                  </a>
+                  <ul class="cat-sub-menu">
+                      <li>
+                          <a href="categories.html">All categories</a>
+                      </li>
+                  </ul>
+              </li>
+              <li>
+                  <a class="show-cat-btn" href="##">
+                      <span class="icon image" aria-hidden="true"></span>Media
+                      <span class="category__btn transparent-btn" title="Open list">
+                          <span class="sr-only">Open list</span>
+                          <span class="icon arrow-down" aria-hidden="true"></span>
+                      </span>
+                  </a>
+                  <ul class="cat-sub-menu">
+                      <li>
+                          <a href="media-01.html">Media-01</a>
+                      </li>
+                      <li>
+                          <a href="media-02.html">Media-02</a>
+                      </li>
+                  </ul>
+              </li>
+              <li>
+                  <a class="show-cat-btn" href="##">
+                      <span class="icon paper" aria-hidden="true"></span>Pages
+                      <span class="category__btn transparent-btn" title="Open list">
+                          <span class="sr-only">Open list</span>
+                          <span class="icon arrow-down" aria-hidden="true"></span>
+                      </span>
+                  </a>
+                  <ul class="cat-sub-menu">
+                      <li>
+                          <a href="pages.html">All pages</a>
+                      </li>
+                      <li>
+                          <a href="new-page.html">Add new page</a>
+                      </li>
+                  </ul>
+              </li>
+              <li>
+                  <a href="comments.html">
+                      <span class="icon message" aria-hidden="true"></span>
+                      Comments
+                  </a>
+                  <span class="msg-counter">7</span>
+              </li>
+          </ul>
+          <span class="system-menu__title">system</span>
+          <ul class="sidebar-body-menu">
+              <li>
+                  <a href="appearance.html"><span class="icon edit" aria-hidden="true"></span>Appearance</a>
+              </li>
+              <li>
+                  <a class="show-cat-btn" href="##">
+                      <span class="icon category" aria-hidden="true"></span>Extentions
+                      <span class="category__btn transparent-btn" title="Open list">
+                          <span class="sr-only">Open list</span>
+                          <span class="icon arrow-down" aria-hidden="true"></span>
+                      </span>
+                  </a>
+                  <ul class="cat-sub-menu">
+                      <li>
+                          <a href="extention-01.html">Extentions-01</a>
+                      </li>
+                      <li>
+                          <a href="extention-02.html">Extentions-02</a>
+                      </li>
+                  </ul>
+              </li>
+              <li>
+                  <a class="show-cat-btn" href="##">
+                      <span class="icon user-3" aria-hidden="true"></span>Users
+                      <span class="category__btn transparent-btn" title="Open list">
+                          <span class="sr-only">Open list</span>
+                          <span class="icon arrow-down" aria-hidden="true"></span>
+                      </span>
+                  </a>
+                  <ul class="cat-sub-menu">
+                      <li>
+                          <a href="users-01.html">Users-01</a>
+                      </li>
+                      <li>
+                          <a href="users-02.html">Users-02</a>
+                      </li>
+                  </ul>
+              </li>
+              <li>
+                  <a href="##"><span class="icon setting" aria-hidden="true"></span>Settings</a>
+              </li>
+          </ul>
+      </div>
+  </div>
+  <div class="sidebar-footer">
+      <a href="##" class="sidebar-user">
+          <span class="sidebar-user-img">
+              <picture><source srcset="./img/avatar/avatar-illustrated-01.webp" type="image/webp"><img src="./img/avatar/avatar-illustrated-01.png" alt="User name"></picture>
+          </span>
+          <div class="sidebar-user-info">
+              <span class="sidebar-user__title">Nafisa Sh.</span>
+              <span class="sidebar-user__subtitle">Support manager</span>
+          </div>
+      </a>
+  </div>
+</aside>
