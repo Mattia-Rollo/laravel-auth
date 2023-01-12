@@ -21,7 +21,7 @@
                       </div>
                       <div class="d-flex">
                         <div class="media me-4">
-                            <img class="shadow" width="150" src="{{$project->cover_image ? asset('storage/' . $project->cover_image) : 'https://picsum.photos/200/300'}}" alt="{{$project->title}}">
+                            <img class="shadow-lg" width="250" src="{{$project->cover_image ? asset('storage/' . $project->cover_image) : 'https://picsum.photos/200/300'}}" alt="{{$project->title}}">
                         </div>
                         <div class="mb-3">
                             <label for="cover_image" class="form-label">Replace post image</label>
@@ -31,8 +31,10 @@
                             @enderror
                         </div>
                     </div>
-                      <button type="submit" class="btn btn-success">Submit</button>
-                      <a href="{{route('admin.projects.index')}}" class="btn btn-primary">back</a>
+                      <div class="py-2">
+                        <a href="{{route('admin.projects.index')}}" class="btn btn-primary">Back</a>
+                        <button type="submit" class="btn btn-success">Save</button>
+                      </div>
                 </form>
             </div>
         </div>

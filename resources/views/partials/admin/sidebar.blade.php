@@ -1,4 +1,4 @@
-<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 280px;">
+<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 200px;">
   <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
     <i class="fs-3 fa-solid fa-toolbox"></i>
     <span class="ms-3 fs-4">Sidebar</span>

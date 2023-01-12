@@ -11,15 +11,17 @@
         <p class="col-md-12 fs-4 text-center">Hi there! How is it going? I'm Mattia and i'm web developer, below you can find some of my latest projects achived with Laravel</p>
         <div class="row py-3">
             @foreach ($projects as $project)
-            <div class="col-4 g-2">
+            <div class="{{ $loop->first ? 'col-12' : 'col col-sm-6 col-md-4' }} g-2 first-project">
     
                 <div class="card h-100 shadow-lg">
                     <div class="card-body">
-                      <h5 class="card-title"><a href="{{ route('show', $project->slug) }}">{{$project->title}}</a></h5>
-                      <p class="card-text">{{Str::limit($project->content, 150, '...')}}</p>
+                        <h5 class="card-title fs-4"><a class=" text-decoration-none"href="{{ route('show', $project->slug) }}">{{$project->title}}</a></h5>
+                      <p class="card-text">{{$loop->first ? Str::limit($project->content, 600, '...') : Str::limit($project->content, 250, '...')}}</p>
                     </div>
-                    <div class="d-flex">
-                      <a href="{{ route('show', $project->slug) }}" class="btn btn-primary m-2 w-25">view</a>
+                    <div class="d-flex justify-content-end" >
+                      <a href="{{ route('show', $project->slug) }}" class="btn btn-primary m-2
+                        
+                       {{$loop->first ? 'w-10' : 'w-25'}}">view</a>
                     </div>
                   </div>
                 </div>

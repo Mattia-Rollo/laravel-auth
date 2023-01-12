@@ -4,11 +4,11 @@
  
 <div class="text-end"><a href="{{ route('admin.projects.create') }}" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a> </div> 
 
-  <div class="row">
+  <div class="row g-1">
         
       
       @foreach ($projects as $project)
-        <div class="col-12 col-md-4 g-2">
+        <div class="col-lg-4 col-sm-6 col-12">
 
           <div class="card h-100 shadow-lg">
 

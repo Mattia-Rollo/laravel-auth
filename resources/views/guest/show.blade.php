@@ -24,9 +24,21 @@
             </div>
             
             
-        </article>
-        
-        <a href="{{ route('admin.projects.index') }}" class="btn  btn-primary my-4 btn-lg">Back</a>
+    </article>
+        <div class="row py-2">
+            <div class="col">
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quisquam quidem eaque odio corrupti, consequuntur nam exercitationem aspernatur cupiditate deserunt aut rem sed voluptate omnis ipsum saepe dicta ex voluptas doloremque. Inventore blanditiis ipsa error tenetur aperiam magnam nostrum! Culpa et quae dolor dicta quasi similique nulla ipsum facere cumque beatae.
+            </div>
+            <div class="col">
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit. Blanditiis tempore impedit quo nesciunt magnam ullam necessitatibus non asperiores praesentium eveniet officiis incidunt hic similique, omnis, aut ex repellendus obcaecati quia.
+            </div>
+        </div>
+        <div class="row py-2">
+            <div class="col">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio officia adipisci rem perferendis beatae excepturi at nulla ab, debitis a ad sint esse ducimus animi tenetur sunt, qui natus. Excepturi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio officia adipisci rem perferendis beatae excepturi at nulla ab, debitis a ad sint esse ducimus animi tenetur sunt, qui natus. Excepturi.</p>
+            </div>
+        </div>
+        <a href="{{ route('welcome') }}" class="btn  btn-primary my-4 btn-lg">Back</a>
 
 
 @endsection
