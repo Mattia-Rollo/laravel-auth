@@ -44,9 +44,11 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
+        $userId = Auth::id();
         $data = $request->validated();
         $slug = Project::generateSlug($request->title);
         $data['slug'] = $slug;
+        $data['user_id'] = $userId;
         if ($request->hasFile('cover_image')) {
             $path = Storage::disk('public')->put('post_images', $request->cover_image);
             $data['cover_image'] = $path;

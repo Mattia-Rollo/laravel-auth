@@ -11,7 +11,7 @@
         <tr>
           <th scope="col">#</th>
           <th scope="col">Titolo</th>
-          <th scope="col">Numero Post</th>
+          <th scope="col">Categoria</th>
           <th scope="col">slug</th>
           <th scope="col text-center">controlli</th>
         </tr>
