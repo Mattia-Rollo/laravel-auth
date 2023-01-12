@@ -24,7 +24,7 @@ class ProjectController extends Controller
             $projects = Project::all();
         } else {
             $userId = Auth::id();
-            $projects = Project::where('user_id', $userId)->get();
+            $projects = Project::latest()->where('user_id', $userId)->get();
         }
         // $projects = Project::all();
         return view('admin.projects.index', compact('projects'));

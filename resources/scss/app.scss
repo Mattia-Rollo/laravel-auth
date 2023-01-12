@@ -7,6 +7,13 @@ $fa-font-path: "../fonts/font-awesome" !default;
 @import "~@fortawesome/fontawesome-free/scss/solid";
 @import "~@fortawesome/fontawesome-free/scss/brands";
 
+// @import "~bootstrap/scss/_root.scss";
+
+
+$primary: rebeccapurple;
+$secondary: rgb(49, 95, 133);
+$danger: rgb(186, 30, 69);
+
 @import "~bootstrap/scss/bootstrap";
 
 #admin {
@@ -57,3 +64,19 @@ textarea {
 //         transform: scale(1.03);
 //     }
 // }
+
+
+#container-editor {
+    width: 100%;
+    margin: 20px auto;
+}
+.ck-editor__editable[role="textbox"] {
+    /* editing area */
+    min-height: 250px;
+}
+.ck-content .image {
+    /* block images */
+    max-width: 80%;
+    margin: 20px auto;
+}            
+      

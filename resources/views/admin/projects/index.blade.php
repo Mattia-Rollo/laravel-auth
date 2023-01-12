@@ -10,25 +10,25 @@
 
   <div class="row py-2 g-2">
      
-    <table class="table">
-      <thead>
+    <table class="table table-striped table-hover table-bordered">
+      <thead class="text-bg-primary">
         <tr>
           <th scope="col">#</th>
           <th scope="col">Titolo</th>
           <th scope="col">Categoria</th>
           <th scope="col">Autore</th>
           <th scope="col">Content</th>
-          <th scope="col text-center">controlli</th>
+          <th scope="col">controlli</th>
         </tr>
       </thead>
       <tbody>
         @foreach ($projects as $project)
         <tr>
           <th scope="row">{{$project->id}}</th>
-          <td>{{$project->title}}</td>
+          <td>{{Str::limit($project->title,30)}}</td>
           <td>{{$project->category ? $project->category->name : 'Senza categoria'}}</td>
-          <td>{{$project->user->name}}</td>
-          <td>{{Str::limit($project->content,80)}}</td>
+          <td>{{$project->user->name?? ''}}</td>
+          <td>{{Str::limit($project->content,80)}} <div>Data: {{$project->created_at}}</div></td>
           <td>
             <div class="d-flex ">
               <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-primary m-2"><i class="fa-solid fa-eye"></i></a>

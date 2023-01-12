@@ -18,9 +18,12 @@
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
-              <div class="mb-3">
+              <div class="mb-3" style="height: 300px;" id="container-editor">
+                
                 <label for="content" class="form-label">Content</label>
+                <div id="editor" class="h-100">
                 <textarea rows="10" class="form-control" id="content" name="content">{{old('content', $project->content)}}</textarea>
+              </div>
               </div>
               <div class="d-flex">
                 <div class="media me-4">
@@ -34,9 +37,13 @@
                     @enderror
                 </div>
             </div>
+            
             <div class="mb-3">
                 <label for="category_id" class="form-label">Seleziona categoria</label>
+                
+                
                 <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror">
+                  
                   <option value="">Select category</option>
                   @foreach ($categories as $category)
                       <option value="{{$category->id}}"
@@ -46,20 +53,32 @@
                         {{ $category->id == old('category_id', $project->category->id) ? 'selected' : '' }}
                         
                         @endif
+
                         >{{$category->name}}</option>
                   @endforeach
                 </select>
+                
                 @error('category_id')
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
+
               </div>
-              <button type="submit" class="btn btn-success">Submit</button>
-              <button type="reset" class="btn btn-primary">Reset</button>
+              <div class="d-flex gap-1">
+                <a href="{{route('admin.projects.index')}}" class="btn btn-primary me-auto"><i class="fa-solid fa-arrow-left me-1"></i>Back</a>
+                <button type="submit" class="btn btn-success">Salva</button>
+                <button type="reset" class="btn btn-primary">Resetta</button>
+              </div>
         </form>
     </div>
 </div>
 
-        
-
+<script src="https://cdn.ckeditor.com/ckeditor5/35.4.0/classic/ckeditor.js"></script>
+<script>
+  ClassicEditor
+      .create( document.querySelector( '#editor' ) )
+      .catch( error => {
+          console.error( error );
+      } );
+</script>
  
 @endsection
