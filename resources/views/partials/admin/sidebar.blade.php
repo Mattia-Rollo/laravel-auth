@@ -1,4 +1,4 @@
-{{-- <div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 200px;">
+<div class="d-flex flex-column flex-shrink-0 p-3 text-bg-dark" style="width: 200px;">
   <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
     <i class="fs-3 fa-solid fa-toolbox"></i>
     <span class="ms-3 fs-4">Sidebar</span>
@@ -18,9 +18,9 @@
       </a>
     </li>
     <li>
-      <a href="#" class="nav-link text-white">
+      <a href="{{route('admin.categories.index')}}" class="nav-link text-white {{ Route::currentRouteName() == 'admin.categories.index' ? 'active' : '' }} ">
         <i class="fa-solid fa-cash-register me-1"></i>
-        Orders
+        Categories
       </a>
     </li>
     <li>
@@ -51,8 +51,8 @@
                                 </form>
     </ul>
   </div>
-</div> --}}
-
+</div>
+{{-- 
 <aside class="sidebar">
   <div class="sidebar-start">
       <div class="sidebar-head">
@@ -204,4 +204,4 @@
           </div>
       </a>
   </div>
-</aside>
+</aside> --}}
