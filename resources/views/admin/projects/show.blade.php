@@ -10,7 +10,7 @@
             <div class="col-12 col-md-8 justify-content-between">
     
                 <p>
-                    {{$project->content}}
+                    {!!$project->content!!}
                 </p>
             </div>
             

@@ -18,6 +18,7 @@
           <th scope="col">Categoria</th>
           <th scope="col">Autore</th>
           <th scope="col">Content</th>
+          <th scope="col">Data</th>
           <th scope="col">controlli</th>
         </tr>
       </thead>
@@ -27,8 +28,9 @@
           <th scope="row">{{$project->id}}</th>
           <td>{{Str::limit($project->title,30)}}</td>
           <td>{{$project->category ? $project->category->name : 'Senza categoria'}}</td>
-          <td>{{$project->user->name?? ''}}</td>
-          <td>{{Str::limit($project->content,80)}} <div>Data: {{$project->created_at}}</div></td>
+          <td class="text-center">{{$project->user->name?? ''}}</td>
+          <td>{!!Str::limit($project->content,80)!!}</td>
+          <td><div>Data: {{$project->created_at}}</div></td>
           <td>
             <div class="d-flex ">
               <a href="{{ route('admin.projects.show', $project->slug) }}" class="btn btn-primary m-2"><i class="fa-solid fa-eye"></i></a>

@@ -21,9 +21,10 @@
               <div class="mb-3" style="height: 300px;" id="container-editor">
                 
                 <label for="content" class="form-label">Content</label>
-                <div id="editor" class="h-100">
-                <textarea rows="10" class="form-control" id="content" name="content">{{old('content', $project->content)}}</textarea>
-              </div>
+                {{-- <div id="editor"> --}}
+                    <textarea id="editor" rows="10" class="form-control" id="content" name="content">{!!old('content', $project->content)!!}</textarea>
+                {{-- </div> --}}
+
               </div>
               <div class="d-flex">
                 <div class="media me-4">
@@ -73,12 +74,22 @@
 </div>
 
 <script src="https://cdn.ckeditor.com/ckeditor5/35.4.0/classic/ckeditor.js"></script>
+
 <script>
   ClassicEditor
-      .create( document.querySelector( '#editor' ) )
-      .catch( error => {
-          console.error( error );
-      } );
+    .create( document.querySelector( '#editor' ), {
+        toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote' ],
+        heading: {
+            options: [
+                { model: 'paragraph', title: 'Paragraph', class: 'ck-heading_paragraph' },
+                { model: 'heading1', view: 'h1', title: 'Heading 1', class: 'ck-heading_heading1' },
+                { model: 'heading2', view: 'h2', title: 'Heading 2', class: 'ck-heading_heading2' }
+            ]
+        }
+    } )
+    .catch( error => {
+        console.log( error );
+    } );
 </script>
  
 @endsection

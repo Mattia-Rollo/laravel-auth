@@ -10,8 +10,8 @@ $fa-font-path: "../fonts/font-awesome" !default;
 // @import "~bootstrap/scss/_root.scss";
 
 
-$primary: rebeccapurple;
-$secondary: rgb(49, 95, 133);
+$primary: rgb(44, 212, 164);
+$secondary: rgb(0, 70, 141);
 $danger: rgb(186, 30, 69);
 
 @import "~bootstrap/scss/bootstrap";
@@ -46,14 +46,14 @@ $danger: rgb(186, 30, 69);
         object-fit: cover;
     }
 }
-.first-project {
-    min-height: 300px;
-}
-textarea {
-    height: 30vh;
-}
+// .first-project {
+//     min-height: 300px;
+// }
+// textarea {
+//     height: 30vh;
+// }
 .box-img {
-    height: 20vw;
+    // height: 20vw;
     img {
         max-height: 100%;
     }

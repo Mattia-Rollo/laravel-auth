@@ -5,7 +5,7 @@
     <div class="container">
         
         
-        <h1 class="display-5 fw-bold text-center pb-3">
+        <h1 class="display-5 fw-bold text-center text-primary pb-3">
             Welcome to My Projects
         </h1>
         <p class="col-md-12 fs-4 text-center">Hi there! How is it going? I'm Mattia and i'm web developer, below you can find some of my latest projects achived with Laravel</p>
@@ -16,7 +16,7 @@
                 <div class="card h-100 shadow-lg">
                     <div class="card-body">
                         <h5 class="card-title fs-4"><a class=" text-decoration-none"href="{{ route('show', $project->slug) }}">{{$project->title}}</a></h5>
-                        <p class="card-text">{{$loop->first ? Str::limit($project->content, 600, '...') : Str::limit($project->content, 250, '...')}}</p>
+                        <p class="card-text">{!!$project->content!!}</p>
                         <div class="box-img"><img src="{{asset('storage/' . $project->cover_image)}}" class="" alt=""></div>
                     </div>
                     <div class="d-flex justify-content-end" >
