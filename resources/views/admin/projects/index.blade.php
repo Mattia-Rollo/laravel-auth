@@ -4,7 +4,7 @@
  
 <div class="text-end"><a href="{{ route('admin.projects.create') }}" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a> </div> 
 
-  <div class="row g-1">
+  <div class="row py-2 g-2">
         
       
       @foreach ($projects as $project)

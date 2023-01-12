@@ -44,3 +44,15 @@ $fa-font-path: "../fonts/font-awesome" !default;
 textarea {
     height: 30vh;
 }
+.box-img {
+    height: 20vw;
+    img {
+        max-height: 100%;
+    }
+}
+.card {
+    transition: transform 0.5s;
+    &:hover {
+        transform: scale(0.96);
+    }
+}

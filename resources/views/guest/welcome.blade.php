@@ -16,7 +16,8 @@
                 <div class="card h-100 shadow-lg">
                     <div class="card-body">
                         <h5 class="card-title fs-4"><a class=" text-decoration-none"href="{{ route('show', $project->slug) }}">{{$project->title}}</a></h5>
-                      <p class="card-text">{{$loop->first ? Str::limit($project->content, 600, '...') : Str::limit($project->content, 250, '...')}}</p>
+                        <p class="card-text">{{$loop->first ? Str::limit($project->content, 600, '...') : Str::limit($project->content, 250, '...')}}</p>
+                        <div class="box-img"><img src="{{asset('storage/' . $project->cover_image)}}" class="" alt=""></div>
                     </div>
                     <div class="d-flex justify-content-end" >
                       <a href="{{ route('show', $project->slug) }}" class="btn btn-primary m-2
