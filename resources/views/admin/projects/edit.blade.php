@@ -3,6 +3,7 @@
 @section('content')
 
 {{-- {{dd(old('category_id'))}} --}}
+{{-- {{dd($project->category->id)}} --}}
 
 <h1>Edit Post: {{$project->title}}</h1>
 <div class="row bg-white">
@@ -38,7 +39,14 @@
                 <select name="category_id" id="category_id" class="form-control @error('category_id') is-invalid @enderror">
                   <option value="">Select category</option>
                   @foreach ($categories as $category)
-                      <option value="{{$category->id}}" {{ $category->id == old('category_id', $project->category->id) ? 'selected' : '' }}>{{$category->name}}</option>
+                      <option value="{{$category->id}}"
+                        
+                        @if(! empty($project->category->id))
+                        
+                        {{ $category->id == old('category_id', $project->category->id) ? 'selected' : '' }}
+                        
+                        @endif
+                        >{{$category->name}}</option>
                   @endforeach
                 </select>
                 @error('category_id')

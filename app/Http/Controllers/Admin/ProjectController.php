@@ -20,7 +20,13 @@ class ProjectController extends Controller
     public function index()
     {
         //
-        $projects = Project::all();
+        if (Auth::user()->isAdmin()) {
+            $projects = Project::all();
+        } else {
+            $userId = Auth::id();
+            $projects = Project::where('user_id', $userId)->get();
+        }
+        // $projects = Project::all();
         return view('admin.projects.index', compact('projects'));
     }
 
@@ -32,8 +38,8 @@ class ProjectController extends Controller
     public function create()
     {
         //
-
-        return view('admin.projects.create');
+        $categories = Category::all();
+        return view('admin.projects.create', compact('categories'));
     }
 
     /**

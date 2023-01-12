@@ -12,6 +12,7 @@
           <th scope="col">#</th>
           <th scope="col">Titolo</th>
           <th scope="col">Categoria</th>
+          <th scope="col">Autore</th>
           <th scope="col">slug</th>
           <th scope="col text-center">controlli</th>
         </tr>
@@ -22,6 +23,7 @@
           <th scope="row">{{$project->id}}</th>
           <td>{{$project->title}}</td>
           <td>{{$project->category ? $project->category->name : 'Senza categoria'}}</td>
+          <td>{{$project->user->name}}</td>
           <td>{{Str::limit($project->content,80)}}</td>
           <td>
             <div class="d-flex ">
