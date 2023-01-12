@@ -41,12 +41,4 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function isAdmin()
-    {
-        return $this->is_admin == true;
-    }
-    public function posts()
-    {
-        return $this->hasMany(Post::class);
-    }
 }
