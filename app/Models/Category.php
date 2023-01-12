@@ -9,8 +9,14 @@ use Illuminate\Support\Str;
 class Category extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
     public static function generateSlug($name)
     {
         return Str::slug($name, '-');
+    }
+    public function posts()
+    {
+        return $this->hasMany(Project::class);
     }
 }
