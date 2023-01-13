@@ -9,9 +9,9 @@ $fa-font-path: "../fonts/font-awesome" !default;
 
 // @import "~bootstrap/scss/_root.scss";
 
-// $primary: rgb(44, 212, 164);
-// $secondary: rgb(0, 70, 141);
-// $danger: rgb(186, 30, 69);
+$primary: rgb(44, 212, 164);
+$secondary: rgb(57, 57, 57);
+$danger: rgb(186, 30, 69);
 
 @import "~bootstrap/scss/bootstrap";
 
@@ -52,12 +52,19 @@ $fa-font-path: "../fonts/font-awesome" !default;
 //     height: 30vh;
 // }
 .box-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 15px;
+    // width: 400px;
+    height: 200px;
+    border-radius: 8px;
     overflow: hidden;
     img {
-        max-height: 100%;
+        transition: transform 0.8s;
+        // max-height: 100%;
+        object-fit: cover;
+        
+        &:hover{
+            transform: scale(1.03);
+            cursor: pointer;
+        }
     }
 }
 // .card {

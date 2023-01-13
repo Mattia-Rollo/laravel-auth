@@ -15,9 +15,11 @@
             </div>
             
             <div class="col-12 col-md-4">
+                
+
                 <div class="img-placeholder  shadow">
                     {!!$project->cover_image ? '' : '<h4>image placeholder text</h4>'!!}
-                
+                    
                     <img class="" src="{{$project->cover_image ? asset('storage/' . $project->cover_image) : ''}}" alt="{{$project->cover_image}}" >
                 
                 </div>

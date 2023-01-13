@@ -15,14 +15,20 @@
     
                 <div class="card h-100 shadow-lg">
                     <div class="card-body">
-                        <h5 class="card-title fs-4"><a class=" text-decoration-none"href="{{ route('show', $project->slug) }}">{{$project->title}}</a></h5>
+                        <h5 class="card-title fs-4 text-center"><a class=" text-decoration-none"href="{{ route('show', $project->slug) }}">{{$project->title}}</a></h5>
                         <p class="card-text">{!!$project->content!!}</p>
-                        <div class="box-img"><img src="{{asset('storage/' . $project->cover_image)}}" class="" alt=""></div>
-                    </div>
-                    <div class="d-flex justify-content-end" >
-                      <a href="{{ route('show', $project->slug) }}" class="btn btn-primary m-2
+                        <div class="d-flex justify-content-between" >
+                        @if($project->cover_image)
+                        <div class="box-img shadow-lg w-50">
+                            <img src="{{asset('storage/' . $project->cover_image)}}" class="img-fluid" alt="">
+                        </div>
+                        @endif
+
                         
-                       {{$loop->first ? 'w-10' : 'w-25'}}">view</a>
+                          <a href="{{ route('show', $project->slug) }}" class="btn btn-primary align-self-end
+                            
+                           {{$loop->first ? '' : ''}} w-25">view</a>
+                        </div>
                     </div>
                   </div>
                 </div>

@@ -12,6 +12,7 @@
   <div class="row py-2 g-2">
      
     <table class="table table-striped table-hover table-bordered">
+      
       <thead class="text-bg-primary">
         <tr>
           <th scope="col">#</th>
