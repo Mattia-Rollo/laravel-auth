@@ -13,12 +13,10 @@
         <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Add</button>
     </div>
 </form>
-@if(session()->has('message'))
-    <div class="alert alert-success mb-3 mt-3">
-        {{ session()->get('message') }}
-    </div>
-    @endif
-  <div class="row py-2 g-2">
+
+@include('partials.admin.error-message')
+  
+<div class="row py-2 g-2">
      
     <table class="table table-striped table-hover table-bordered">
       <thead class="text-bg-primary">

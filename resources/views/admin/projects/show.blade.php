@@ -24,13 +24,14 @@
             </div>
             
         </article>
-        <div class="row py-2">
+        <div class="">
+            tag: 
             @if($project->tags && count($project->tags) > 0)
-       @foreach ($project->tags as $tag)
-        <span>{{$tag->name}}</span>
+                @foreach ($project->tags as $tag)
+                    #<span>{{$tag->name}}</span>
+                @endforeach
+            @endif
 
-       @endforeach
-    @endif
         </div>
 
        

@@ -2,6 +2,7 @@
 
 @section('content')
 
+@include('partials.admin.error-message')
 
 <h1>{{$category->name}}</h1>
 <ul>

@@ -18,10 +18,10 @@ class ProjectTableSeeder extends Seeder
         //
         // Project::truncate();
 
-        for ($i = 0; $i < 4; $i++) {
+        for ($i = 0; $i < 10; $i++) {
             $project = new Project();
             $project->category_id = fake()->numberBetween(1, 4);
-            $project->user_id = 1;
+            $project->user_id = fake()->numberBetween(1, 2);
             $project->title = fake()->sentence(3);
             $project->slug = $project::generateSlug($project->title);
             $project->content = fake()->paragraph(3);

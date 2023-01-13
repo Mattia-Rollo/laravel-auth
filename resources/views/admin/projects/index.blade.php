@@ -8,6 +8,7 @@
   <div><a href="{{ route('admin.projects.create') }}" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a></div>
 </div>
 
+@include('partials.admin.error-message')
   <div class="row py-2 g-2">
      
     <table class="table table-striped table-hover table-bordered">
