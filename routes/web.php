@@ -39,7 +39,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')
             ->name('dashboard');
         Route::resource('projects', ProjectController::class)->parameters(['projects' => 'project:slug']);
         Route::resource('categories', CategoryController::class)->parameters(['categories' => 'category:slug']);
-        Route::resource('tags', TagController::class)->parameters(['tags' => 'tags:slug'])->except('create', 'show', 'edit');
+        Route::resource('tags', TagController::class)->parameters(['tags' => 'tag:slug'])->except('create', 'show', 'edit');
     });
 
 // Route::middleware('auth')->group(function () {

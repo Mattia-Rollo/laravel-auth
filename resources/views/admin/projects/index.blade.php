@@ -16,10 +16,11 @@
           <th scope="col">#</th>
           <th scope="col">Titolo</th>
           <th scope="col">Categoria</th>
+          <th scope="col">tags</th>
           <th scope="col">Autore</th>
           <th scope="col">Content</th>
           <th scope="col">Data</th>
-          <th scope="col">controlli</th>
+          <th scope="col">Controlli</th>
         </tr>
       </thead>
       <tbody>
@@ -27,7 +28,12 @@
         <tr>
           <th scope="row">{{$project->id}}</th>
           <td>{{Str::limit($project->title,30)}}</td>
-          <td>{{$project->category ? $project->category->name : 'Senza categoria'}}</td>
+          <td>{{$project->category->name?? ''}}</td>
+          <td>
+            @foreach($project->tags as $tag)
+             <span>{{$tag->name}}</span>
+            @endforeach 
+          </td>
           <td class="text-center">{{$project->user->name?? ''}}</td>
           <td>{!!Str::limit($project->content,80)!!}</td>
           <td><div>Data: {{$project->created_at}}</div></td>

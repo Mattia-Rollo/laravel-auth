@@ -6,6 +6,7 @@ use App\Models\Tag;
 use App\Http\Requests\StoreTagRequest;
 use App\Http\Requests\UpdateTagRequest;
 use Illuminate\Routing\Controller;
+use Symfony\Component\HttpFoundation\Request;
 
 class TagController extends Controller
 {
@@ -96,8 +97,9 @@ class TagController extends Controller
     public function destroy(Tag $tag)
     {
         //
-        $tag->delete();
+        // dd($slug);
 
+        $tag->delete();
         return redirect()->back()->with('message', "tag $tag->name removed successfully");
     }
 }

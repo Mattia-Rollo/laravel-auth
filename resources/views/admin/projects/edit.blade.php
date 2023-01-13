@@ -69,15 +69,15 @@
                 <select multiple class="form-select" name="tags[]" id="tags">
                     <option value="">Seleziona tag</option>
                     @forelse ($tags as $tag)
-                    @if($errors->any())
-                    <option value="{{$tag->id}}" {{in_array($tag->id , old('tags[]')) ? 'selected': ''}}>{{$tag->name}}</option>
-                    @else
-                    <option value="{{$tag->id}}" {{$project->tags->contains($project->id) ? 'selected': ''}}>{{$tag->name}}</option>
-                    @endif
-                    @empty
-                        <option value="">No tag</option>
-                    @endforelse
-
+                            @if($errors->any())
+                            <option value="{{$tag->id}}" {{in_array($tag->id , old('tags[]')) ? 'selected': ''}}>{{$tag->name}}</option>
+                            @else
+                            <option value="{{$tag->id}}" {{$project->tags->contains($tag->id) ? 'selected': ''}}>{{$tag->name}}</option>
+                            @endif
+                            @empty
+                                <option value="">No tag</option>
+                            @endforelse
+                    
                 </select>
 
               </div>
