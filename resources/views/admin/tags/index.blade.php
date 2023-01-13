@@ -18,8 +18,7 @@
           <th scope="col">Categoria</th>
           <th scope="col">Autore</th>
           <th scope="col">Content</th>
-          <th scope="col">Data</th>
-          <th scope="col">controlli</th>
+          
         </tr>
       </thead>
       <tbody>

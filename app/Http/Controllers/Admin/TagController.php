@@ -24,10 +24,10 @@ class TagController extends Controller
      *
      * 
      */
-    public function create()
-    {
-        //
-    }
+    // public function create()
+    // {
+    //     //
+    // }
 
     /**
      * Store a newly created resource in storage.
@@ -38,6 +38,14 @@ class TagController extends Controller
     public function store(StoreTagRequest $request)
     {
         //
+        $val = $request->validated();
+        $slug = Tag::generateSlug($request->name);
+        $val['slug'] = $slug;
+
+        Tag::create($val);
+
+        // redirect
+        return redirect()->back()->with('message', "Tag $slug added successfully");
     }
 
     /**
@@ -72,6 +80,11 @@ class TagController extends Controller
     public function update(UpdateTagRequest $request, Tag $tag)
     {
         //
+        $val_data = $request->validated();
+        $slug = Tag::generateSlug($request->name);
+        $val_data['slug'] = $slug;
+        $tag->update($val_data);
+        return redirect()->back()->with('message', "Tag $slug updated successfully");
     }
 
     /**
@@ -83,5 +96,8 @@ class TagController extends Controller
     public function destroy(Tag $tag)
     {
         //
+        $tag->delete();
+
+        return redirect()->back()->with('message', "tag $tag->name removed successfully");
     }
 }

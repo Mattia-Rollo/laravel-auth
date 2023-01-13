@@ -25,14 +25,15 @@
             
         </article>
         <div class="row py-2">
-            
+            @if($project->tags && count($project->tags) > 0)
+       @foreach ($project->tags as $tag)
+        <span>{{$tag->name}}</span>
+
+       @endforeach
+    @endif
         </div>
 
-        <div class="row py-2">
-            <div class="col">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio officia adipisci rem perferendis beatae excepturi at nulla ab, debitis a ad sint esse ducimus animi tenetur sunt, qui natus. Excepturi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio officia adipisci rem perferendis beatae excepturi at nulla ab, debitis a ad sint esse ducimus animi tenetur sunt, qui natus. Excepturi.</p>
-            </div>
-        </div>
+       
         
         <a href="{{ route('admin.projects.index') }}" class="btn btn-primary mb-4">Back</a>
 

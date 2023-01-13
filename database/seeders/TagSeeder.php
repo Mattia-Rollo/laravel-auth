@@ -16,7 +16,7 @@ class TagSeeder extends Seeder
      */
     public function run()
     {
-        Tag::truncate();
+        // Tag::truncate();
 
         $tags = ['html', 'css', 'javascript', 'php', 'mysql'];
         foreach ($tags as $tag) {

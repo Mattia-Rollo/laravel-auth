@@ -64,6 +64,23 @@
                 @enderror
 
               </div>
+              <div class="mb-3">
+                <label for="tags" class="form-label">Tags</label>
+                <select multiple class="form-select" name="tags[]" id="tags">
+                    <option value="">Seleziona tag</option>
+                    @forelse ($tags as $tag)
+                    @if($errors->any())
+                    <option value="{{$tag->id}}" {{in_array($tag->id , old('tags[]')) ? 'selected': ''}}>{{$tag->name}}</option>
+                    @else
+                    <option value="{{$tag->id}}" {{$project->tags->contains($project->id) ? 'selected': ''}}>{{$tag->name}}</option>
+                    @endif
+                    @empty
+                        <option value="">No tag</option>
+                    @endforelse
+
+                </select>
+
+              </div>
               <div class="d-flex gap-1">
                 <a href="{{route('admin.projects.index')}}" class="btn btn-primary me-auto"><i class="fa-solid fa-arrow-left me-1"></i>Back</a>
                 <button type="submit" class="btn btn-success">Salva</button>

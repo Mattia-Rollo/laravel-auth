@@ -7,6 +7,7 @@ use App\Http\Requests\StoreProjectRequest;
 use App\Http\Requests\UpdateProjectRequest;
 use App\Models\Category;
 use App\Models\Project;
+use App\Models\Tag;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -39,7 +40,8 @@ class ProjectController extends Controller
     {
         //
         $categories = Category::all();
-        return view('admin.projects.create', compact('categories'));
+        $tags = Tag::all();
+        return view('admin.projects.create', compact('categories', 'tags'));
     }
 
     /**
@@ -61,6 +63,10 @@ class ProjectController extends Controller
         }
 
         $new_project = Project::create($data);
+
+        if ($request->has('tags')) {
+            $new_project->tags()->attach($request->tags);
+        }
         return redirect()->route('admin.projects.show', $new_project->slug);
     }
 
@@ -95,7 +101,8 @@ class ProjectController extends Controller
             abort(403);
         }
         $categories = Category::all();
-        return view('admin.projects.edit', compact('project', 'categories'));
+        $tags = Tag::all();
+        return view('admin.projects.edit', compact('project', 'categories', 'tags'));
     }
 
     /**
@@ -121,6 +128,10 @@ class ProjectController extends Controller
             $data['cover_image'] = $path;
         }
         $project->update($data);
+
+        if ($request->has('tags')) {
+            $project->tags()->sync($request->tags);
+        }
         return redirect()->route('admin.projects.index')->with('message', "$project->title updated successfully");
     }
 
