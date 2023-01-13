@@ -18,7 +18,7 @@
                 <div class="invalid-feedback">{{ $message }}</div>
                 @enderror
               </div>
-              <div class="mb-3" style="height: 300px;" id="container-editor">
+              <div class="mb-3"  id="container-editor">
                 
                 <label for="content" class="form-label">Content</label>
                 {{-- <div id="editor"> --}}

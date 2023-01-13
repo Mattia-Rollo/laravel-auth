@@ -9,7 +9,6 @@ $fa-font-path: "../fonts/font-awesome" !default;
 
 // @import "~bootstrap/scss/_root.scss";
 
-
 $primary: rgb(44, 212, 164);
 $secondary: rgb(0, 70, 141);
 $danger: rgb(186, 30, 69);
@@ -53,7 +52,10 @@ $danger: rgb(186, 30, 69);
 //     height: 30vh;
 // }
 .box-img {
-    // height: 20vw;
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    overflow: hidden;
     img {
         max-height: 100%;
     }
@@ -64,7 +66,6 @@ $danger: rgb(186, 30, 69);
 //         transform: scale(1.03);
 //     }
 // }
-
 
 #container-editor {
     width: 100%;
@@ -78,5 +79,17 @@ $danger: rgb(186, 30, 69);
     /* block images */
     max-width: 80%;
     margin: 20px auto;
-}            
-      
+}
+
+blockquote {
+    border-left: 5px solid $primary;
+    padding-left: 2rem;
+}
+.text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* number of lines to show */
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
