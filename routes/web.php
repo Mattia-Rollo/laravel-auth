@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\TagController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,6 +39,7 @@ Route::middleware(['auth', 'verified'])->name('admin.')->prefix('admin')
             ->name('dashboard');
         Route::resource('projects', ProjectController::class)->parameters(['projects' => 'project:slug']);
         Route::resource('categories', CategoryController::class)->parameters(['categories' => 'category:slug']);
+        Route::resource('tags', TagController::class)->parameters(['tags' => 'tags:slug'])->except('create', 'show', 'edit');
     });
 
 // Route::middleware('auth')->group(function () {

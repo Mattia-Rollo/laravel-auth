@@ -24,6 +24,12 @@
         Categories
       </a>
     </li>
+    <li>
+      <a href="{{route('admin.tags.index')}}" class="nav-link text-white {{ Route::currentRouteName() == 'admin.tags.index' ? 'active' : '' }} ">
+        <i class="fa-solid fa-cash-register me-1"></i>
+        Tags
+      </a>
+    </li>
     
     <li>
       <a href="#" class="nav-link text-white">

@@ -135,6 +135,9 @@ class ProjectController extends Controller
         if (!Auth::user()->isAdmin() && $project->user_id !== Auth::id()) {
             abort(403);
         }
+        if ($project->cover_image) {
+            Storage::delete($project->cover_image);
+        }
         $project->delete();
         return redirect()->route('admin.projects.index')->with('message', "$project->title deleted successfully");
 
