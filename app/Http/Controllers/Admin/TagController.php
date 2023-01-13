@@ -12,11 +12,11 @@ class TagController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
      */
     public function index()
     {
-
+        $tags = Tag::all();
+        return view('admin.tags.index', compact('tags'));
     }
 
     /**
