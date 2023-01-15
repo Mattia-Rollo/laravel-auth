@@ -61,8 +61,8 @@
     </ul>
   </div>
 </div>
-{{-- 
-<aside class="sidebar">
+
+{{-- <aside class="sidebar">
   <div class="sidebar-start">
       <div class="sidebar-head">
           <a href="/" class="logo-wrapper" title="Home">
