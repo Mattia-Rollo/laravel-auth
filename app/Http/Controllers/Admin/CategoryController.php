@@ -7,6 +7,8 @@ use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CategoryController extends Controller
 {
@@ -16,7 +18,37 @@ class CategoryController extends Controller
      */
     public function index()
     {
+
+
+        DB::listen(function ($query) {
+            logger($query->sql, $query->bindings);
+        });
+
+        if (Auth::user()->isAdmin()) {
+            $categories = Category::all();
+        } else {
+
+            // $categories = DB::table('categories')
+            //     ->join('projects', 'categories.id', '=', 'project.category_id')
+            //     ->select('*')
+            //     ->where('user_id', Auth::id())
+            //     ->get();
+
+            // $categories = Category::with([
+            //     'projects' => function ($query) {
+            //         $query->where('user_id', Auth::id());
+            //     }
+            // ])->get();
+            // dd($categories);
+        }
+
         $categories = Category::all();
+
+        // $ok = Category::where('slug', $slug)->with([
+        //     'posts' => function ($query) {
+        //         $query->where('user_id', Auth::id());
+        //     }
+        // ])->first();
         return view('admin.categories.index', compact('categories'));
     }
 
@@ -51,9 +83,19 @@ class CategoryController extends Controller
      *
      * 
      */
-    public function show(Category $category)
+    public function show($slug)
     {
         //
+        if (Auth::user()->isAdmin()) {
+            $category = Category::where('slug', $slug)->first();
+        } else {
+            $category = Category::where('slug', $slug)->with([
+                'projects' => function ($query) {
+                    $query->where('user_id', Auth::id());
+                }
+            ])->first();
+        }
+        //dd($category);
         return view('admin.categories.show', compact('category'));
     }
 

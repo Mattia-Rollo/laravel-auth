@@ -6,8 +6,8 @@
 
 <h1>{{$category->name}}</h1>
 <ul>
-    @foreach ($category->posts as $post)
-        <li>{{$post->title}}</li>
+    @foreach ($category->projects as $project)
+        <li>{{$project->title}}</li>
     @endforeach
 </ul>
 

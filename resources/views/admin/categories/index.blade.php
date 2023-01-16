@@ -20,8 +20,8 @@
         @foreach ($categories as $category)
         <tr>
           <th scope="row">{{$category->id}}</th>
-          <td>{{$category->name}}</td>
-          <td>{{count($category->posts)}}</td>
+          <td><a href="{{route('admin.categories.show', $category->slug)}}">{{$category->name}}</a></td>
+          <td>{{count($category->projects)}}</td>
           <td>{{$category->slug}}</td>
           <td>
             <div class="d-flex ">

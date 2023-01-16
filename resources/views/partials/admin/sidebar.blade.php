@@ -17,7 +17,7 @@
         <span>Dashboard</span>
       </a>
     </li>
-    @if(Auth::user()->isAdmin())
+    {{-- @if(Auth::user()->isAdmin()) --}}
     <li>
       <a href="{{route('admin.categories.index')}}" class="nav-link text-white {{ Route::currentRouteName() == 'admin.categories.index' ? 'active' : '' }} ">
         <i class="fa-solid fa-cash-register me-1"></i>
@@ -37,7 +37,7 @@
         Products
       </a>
     </li>
-    @endif
+    {{-- @endif --}}
   </ul>
   <hr>
   <div class="dropdown">
