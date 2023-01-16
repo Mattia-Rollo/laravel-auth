@@ -15,12 +15,12 @@
     
                 <div class="card h-100 shadow-lg">
                     <div class="card-body">
-                        <h5 class="card-title fs-4 text-center"><a class=" text-decoration-none"href="{{ route('show', $project->slug) }}">{{$project->title}}</a></h5>
+                        <h4 class="card-title {{$loop->first ? 'display-3 fw-semibold' : ''}} text-center"><a class=" text-decoration-none"href="{{ route('show', $project->slug) }}">{{$project->title}}</a></h4>
                         <p class="card-text">{!!$project->content!!}</p>
                         <div class="d-flex justify-content-between" >
                         @if($project->cover_image)
                         <div class="box-img shadow-lg w-50">
-                            <img src="{{asset('storage/' . $project->cover_image)}}" class="img-fluid" alt="">
+                            <a href="https://mattia-rollo.github.io/boolflix/"><img src="{{asset('storage/' . $project->cover_image)}}" class="h-100" alt=""></a>
                         </div>
                         @endif
 
@@ -34,6 +34,12 @@
                 </div>
                 @endforeach
             </div>
+            
+                    <div class="github-card" data-github="Mattia-Rollo" data-width="400" data-height="" data-theme="medium"></div>
+
+                    <iframe src="https://mattia-rollo.github.io/boolflix/" width="100%" height="400" frameborder="1" scrolling="no"></iframe>
+                
+<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
 
 
         

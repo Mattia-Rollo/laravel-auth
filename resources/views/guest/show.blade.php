@@ -35,7 +35,8 @@
         </div>
         <div class="row py-2">
             <div class="col">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio officia adipisci rem perferendis beatae excepturi at nulla ab, debitis a ad sint esse ducimus animi tenetur sunt, qui natus. Excepturi. Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio officia adipisci rem perferendis beatae excepturi at nulla ab, debitis a ad sint esse ducimus animi tenetur sunt, qui natus. Excepturi.</p>
+                <div class="github-card" data-github="Mattia-Rollo" data-width="400" data-height="150" data-theme="default"></div>
+<script src="//cdn.jsdelivr.net/github-cards/latest/widget.js"></script>
             </div>
         </div>
         <a href="{{ route('welcome') }}" class="btn  btn-primary my-4 btn-lg">Back</a>

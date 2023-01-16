@@ -53,15 +53,15 @@ $danger: rgb(186, 30, 69);
 // }
 .box-img {
     // width: 400px;
-    height: 200px;
+    height: 350px;
     border-radius: 8px;
     overflow: hidden;
     img {
         transition: transform 0.8s;
         // max-height: 100%;
         object-fit: cover;
-        
-        &:hover{
+
+        &:hover {
             transform: scale(1.03);
             cursor: pointer;
         }
