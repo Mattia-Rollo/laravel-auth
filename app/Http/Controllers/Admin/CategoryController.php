@@ -42,6 +42,7 @@ class CategoryController extends Controller
             // dd($categories);
         }
 
+
         $categories = Category::all();
 
         // $ok = Category::where('slug', $slug)->with([
