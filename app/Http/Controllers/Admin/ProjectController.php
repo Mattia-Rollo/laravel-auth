@@ -25,7 +25,7 @@ class ProjectController extends Controller
             $projects = Project::paginate(5);
         } else {
             $userId = Auth::id();
-            $projects = Project::latest()->where('user_id', $userId)->paginate(5);
+            $projects = Project::latest()->where('user_id', $userId)->with('category', 'tags')->paginate(5);
         }
         // $projects = Project::all();
         return view('admin.projects.index', compact('projects'));

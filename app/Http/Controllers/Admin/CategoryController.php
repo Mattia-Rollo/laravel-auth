@@ -39,7 +39,7 @@ class CategoryController extends Controller
                     $query->where('user_id', Auth::id());
                 }
             ])->get();
-            dd($categories);
+            // dd($categories);
         }
 
 
