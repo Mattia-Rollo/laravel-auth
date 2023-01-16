@@ -6,6 +6,7 @@ use App\Models\Tag;
 use App\Http\Requests\StoreTagRequest;
 use App\Http\Requests\UpdateTagRequest;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Request;
 
 class TagController extends Controller
@@ -17,6 +18,18 @@ class TagController extends Controller
     public function index()
     {
         $tags = Tag::all();
+        if (Auth::user()->isAdmin()) {
+            $tags = Tag::all();
+        } else {
+
+
+            $tags = Tag::with([
+                'projects' => function ($query) {
+                    $query->where('user_id', Auth::id());
+                }
+            ])->get();
+            // dd($tags);
+        }
 
         return view('admin.tags.index', compact('tags'));
     }
