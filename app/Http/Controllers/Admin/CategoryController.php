@@ -19,10 +19,10 @@ class CategoryController extends Controller
     public function index()
     {
 
-
-        DB::listen(function ($query) {
-            logger($query->sql, $query->bindings);
-        });
+        //file log per controllare le chiamate al db
+        // DB::listen(function ($query) {
+        //     logger($query->sql, $query->bindings);
+        // });
 
         if (Auth::user()->isAdmin()) {
             $categories = Category::all();
@@ -34,22 +34,17 @@ class CategoryController extends Controller
             //     ->where('user_id', Auth::id())
             //     ->get();
 
-            // $categories = Category::with([
-            //     'projects' => function ($query) {
-            //         $query->where('user_id', Auth::id());
-            //     }
-            // ])->get();
-            // dd($categories);
+            $categories = Category::with([
+                'projects' => function ($query) {
+                    $query->where('user_id', Auth::id());
+                }
+            ])->get();
+            dd($categories);
         }
 
 
-        $categories = Category::all();
+        // $categories = Category::all();
 
-        // $ok = Category::where('slug', $slug)->with([
-        //     'posts' => function ($query) {
-        //         $query->where('user_id', Auth::id());
-        //     }
-        // ])->first();
         return view('admin.categories.index', compact('categories'));
     }
 
