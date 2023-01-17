@@ -55,11 +55,13 @@
             <div class="d-flex ">
               <!-- bottone delete -->
               {{-- {{$tag}} --}}
+            @if(Auth::user()->isAdmin())
               <form action="{{route('admin.tags.destroy', $tag->slug )}}" method="POST">
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="delete-button btn btn-danger ms-3" data-item-title="{{$tag->name}}"><i class="fa-solid fa-trash-can"></i></button>
              </form>
+             @endif
             </div>
           </td>
 

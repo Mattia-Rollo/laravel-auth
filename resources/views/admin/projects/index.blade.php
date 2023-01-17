@@ -4,7 +4,7 @@
  
 <div class="d-flex justify-content-between">
   
-  <h2>Ruolo: {{Auth::user()->isAdmin() ? 'Amminstratore' : 'Dipendente'}}</h2>
+  <h2>Ruolo: {{Auth::user()->isAdmin() ? 'Amminstratore' : 'User'}}</h2>
   <div><a href="{{ route('admin.projects.create') }}" class="btn btn-primary"><i class="fa-solid fa-plus"></i></a></div>
 </div>
 
